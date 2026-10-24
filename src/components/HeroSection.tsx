@@ -144,7 +144,6 @@ export default function HeroSection() {
           "-=0.1"
         );
 
-      // Pin the hero and connect the animation to scrolling.
       const scrollTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
@@ -206,7 +205,6 @@ export default function HeroSection() {
           0.15
         );
 
-      // Reveal service rows when the next section enters view.
       gsap.from(".service-item", {
         opacity: 0,
         y: 25,
@@ -235,7 +233,7 @@ export default function HeroSection() {
           </a>
 
           <p className="hero-eyebrow">
-            DIGITAL STRATEGY · DESIGN · DEVELOPMENT
+            DIGITAL STRATEGY | DESIGN | DEVELOPMENT 
           </p>
 
           <h1 className="hero-title" aria-label="Welcome ITZ FIZZ">
@@ -331,17 +329,17 @@ export default function HeroSection() {
         </p>
 
         <div className="services-list">
-          {services.map((service) => (
+          {services.map((s) => (
             <a
               className="service-item"
-              key={service.number}
-              href={service.href}
+              key={s.number}
+              href={s.href}
               target="_blank"
               rel="noreferrer"
             >
-              <span className="service-number">{service.number}</span>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+              <span className="service-number">{s.number}</span>
+              <h3>{s.title}</h3>
+              <p>{s.description}</p>
               <span className="service-arrow" aria-hidden="true">
                 ↗
               </span>
