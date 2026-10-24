@@ -1,0 +1,488 @@
+@import "tailwindcss";
+
+:root {
+  --background: #10130f;
+  --foreground: #f4f5ef;
+  --muted: #a0a79c;
+  --accent: #c5ff73;
+  --line: rgba(236, 244, 230, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+/*HERO SECTION*/
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 28px clamp(22px, 5vw, 76px) 20px;
+  background:
+    radial-gradient(
+      ellipse at 72% 67%,
+      rgba(69, 102, 73, 0.19),
+      transparent 44%
+    ),
+    #10130f;
+}
+
+.hero-top {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-mark {
+  display: inline-block;
+  margin-bottom: 26px;
+  color: var(--foreground);
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+}
+
+.brand-mark span {
+  color: var(--accent);
+}
+
+.hero-eyebrow {
+  margin: 0 0 22px;
+  color: var(--accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+/* Keep WELCOME ITZ FIZZ on one line */
+.hero-title {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(28px, 6.2vw, 88px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+.hero-letter {
+  display: inline-block;
+  flex: 0 0 auto;
+  white-space: pre;
+}
+
+.hero-accent {
+  width: 110px;
+  height: 3px;
+  margin-top: 23px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hero-description {
+  max-width: 530px;
+  margin: 18px 0 0;
+  color: #c4c9bf;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.8;
+}
+
+.hero-cta,
+.services-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 14px 18px;
+  border: 1px solid #596253;
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hero-cta span {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.hero-cta:hover,
+.services-cta:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #10130f;
+}
+
+/*ROAD AND CAR ANIMATION*/
+
+.road-scene {
+  position: relative;
+  z-index: 1;
+  margin: 26px 0 20px;
+}
+
+.road-label,
+.road-caption,
+.hero-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+
+.road-label {
+  margin: 0 0 13px;
+  color: var(--foreground);
+}
+
+.road {
+  position: relative;
+  height: 105px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(197, 255, 115, 0.055);
+}
+
+.road-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  background: rgba(197, 255, 115, 0.08);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.road-message {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  color: var(--foreground);
+  font-size: clamp(18px, 3.5vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.road-message-letter {
+  display: inline-block;
+  flex: 0 0 auto;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.road-dashes {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  transform: translateY(-50%);
+}
+
+.road-dashes span {
+  width: clamp(12px, 2vw, 23px);
+  height: 2px;
+  background: #a6afa1;
+}
+
+.car {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  width: clamp(140px, 18vw, 215px);
+  transform: translateY(-59%);
+  will-change: transform;
+}
+
+.car-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 9px 12px rgba(0, 0, 0, 0.25));
+}
+
+.road-caption {
+  margin-top: 13px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 780px;
+}
+
+.stat-card {
+  min-height: 125px;
+  padding: 18px;
+  border: 1px solid rgba(236, 244, 230, 0.2);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.stat-index {
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.stat-value {
+  margin: 16px 0 7px;
+  font-size: clamp(27px, 3.4vw, 43px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.stat-label {
+  margin: 0;
+  color: #b4bbb0;
+  font-size: 12px;
+}
+
+.hero-footer {
+  margin-top: 24px;
+}
+
+/*SERVICES SECTION*/
+
+.services-section {
+  position: relative;
+  padding: clamp(42px, 8vw, 100px) clamp(22px, 6vw, 80px);
+  background: #171b16;
+  color: var(--foreground);
+}
+
+.services-section .hero-eyebrow {
+  margin-bottom: 18px;
+}
+
+.services-heading {
+  max-width: 800px;
+  margin: 16px 0;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.services-intro {
+  max-width: 550px;
+  margin: 0 0 42px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.services-list {
+  border-top: 1px solid var(--line);
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr) minmax(120px, 0.7fr) 24px;
+  align-items: center;
+  gap: 18px;
+  padding: 23px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    padding 0.2s ease,
+    background 0.2s ease;
+}
+
+.service-item:hover {
+  padding-right: 12px;
+  padding-left: 12px;
+  background: rgba(197, 255, 115, 0.035);
+}
+
+.service-number,
+.service-item p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.service-item h3 {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 22px);
+  letter-spacing: 0.04em;
+}
+
+.service-item p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.service-arrow {
+  color: var(--accent);
+  font-size: 21px;
+  transition: transform 0.2s ease;
+}
+
+.service-item:hover .service-arrow {
+  transform: translate(3px, -3px);
+}
+
+.services-cta {
+  margin-top: 32px;
+}
+
+/*RESPONSIVE STYLES*/
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 24px 18px 18px;
+  }
+
+  .brand-mark {
+    margin-bottom: 22px;
+    font-size: 25px;
+  }
+
+  .hero-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-title {
+    font-size: clamp(20px, 6.5vw, 39px);
+    letter-spacing: 0;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .road-scene {
+    margin: 24px 0 18px;
+  }
+
+  .road {
+    height: 85px;
+  }
+
+  .road-message {
+    font-size: clamp(13px, 3.4vw, 20px);
+    letter-spacing: 0;
+  }
+
+  .car {
+    width: 125px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat-card {
+    min-height: 105px;
+    padding: 11px 8px;
+  }
+
+  .stat-index {
+    font-size: 7px;
+    letter-spacing: 0.03em;
+  }
+
+  .stat-value {
+    margin-top: 14px;
+    font-size: clamp(21px, 6vw, 30px);
+  }
+
+  .stat-label {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .road-caption,
+  .hero-footer {
+    font-size: 7px;
+    letter-spacing: 0.04em;
+  }
+
+  .services-section {
+    padding: 52px 20px;
+  }
+
+  .services-heading {
+    font-size: clamp(34px, 9vw, 48px);
+  }
+
+  .services-intro {
+    margin-bottom: 28px;
+    font-size: 14px;
+  }
+
+  .service-item {
+    grid-template-columns: 32px minmax(0, 1fr) 20px;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .service-item:hover {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .service-item p {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .service-arrow {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta,
+  .services-cta,
+  .service-item,
+  .service-arrow {
+    transition: none;
+  }
+}
