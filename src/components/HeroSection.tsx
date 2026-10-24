@@ -329,17 +329,17 @@ export default function HeroSection() {
         </p>
 
         <div className="services-list">
-          {services.map((s) => (
+          {services.map((service) => (
             <a
               className="service-item"
-              key={s.number}
-              href={s.href}
+              key={service.number}
+              href={service.href}
               target="_blank"
               rel="noreferrer"
             >
-              <span className="service-number">{s.number}</span>
-              <h3>{s.title}</h3>
-              <p>{s.description}</p>
+              <span className="service-number">{service.number}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
               <span className="service-arrow" aria-hidden="true">
                 ↗
               </span>
